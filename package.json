@@ -1,0 +1,24 @@
+{
+  "name": "Express-JS-Note-Taker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mdis928/Express-JS-Note-Taker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mdis928/Express-JS-Note-Taker/issues"
+  },
+  "homepage": "https://github.com/mdis928/Express-JS-Note-Taker#readme",
+  "dependencies": {
+    "nodemon": "^2.0.7"
+  },
+  "devDependencies": {}
+}
