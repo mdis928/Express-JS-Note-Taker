@@ -19,6 +19,8 @@ app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'public','index.htm
 
 app.get('/api/notes', (req, res) => res.sendFile(path.join(__dirname, 'public', 'notes.html')));
 
+app.get('/notes', (req, res) => res.sendFile(path.join(__dirname, 'public', 'notes.html')));
+
 app.post('/api/notes', (req, res) => {
     const saveNote = req.body;
     console.log (saveNote);
