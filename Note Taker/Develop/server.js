@@ -2,7 +2,7 @@
 const express = require ('express');
 const path = require ('path');
 const fs = require ('fs');
-const {v4:uuidv4}
+const {v4:uuidv4} = require ('uuid');
 
 // Sets up the Express App
 const app = express ();
@@ -19,11 +19,11 @@ app.use(express.static('public'));
 // Basic routes that sends the user first to the AJAX Page
 app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'public','index.html')));
 
-app.get('/api/notes', (req, res) => res.sendFile(path.join(__dirname, 'public', 'notes.html')));
+// app.get('/api/notes', (req, res) => res.sendFile(path.join(__dirname, 'public', 'notes.html')));
 
 app.get('/notes', (req, res) => res.sendFile(path.join(__dirname, 'public', 'notes.html')));
 
-app.post('/notes', (req, res) => {
+app.post('/api/notes', (req, res) => {
     const saveNote = req.body;
     console.log (saveNote);
     saveNote.id = uuidv4 ();
@@ -32,12 +32,12 @@ app.post('/notes', (req, res) => {
     res.json (data);
 });
 
-app.get('/notes', (req, res) => {
+app.get('/api/notes', (req, res) => {
     let data = JSON.parse (fs.readFileSync("./db/db.json","utf-8"));
     res.json (data);
 })
 
-app.delete('/notes/:id'), (req, res) => {
+app.delete('/api/notes/:id'), (req, res) => {
     let noteId = req.params.id   
     let data = JSON.parse (fs.readFileSync("./db/db.json","utf-8"));
     const newData = data.filter (note => note.id.toString() !==noteId)
