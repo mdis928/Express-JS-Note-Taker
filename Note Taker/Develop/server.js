@@ -25,23 +25,25 @@ app.get('/notes', (req, res) => res.sendFile(path.join(__dirname, 'public', 'not
 
 app.post('/api/notes', (req, res) => {
     const saveNote = req.body;
-    console.log (saveNote);
+    console.log (JSON.stringify(saveNote));
     saveNote.id = uuidv4 ();
-    let data = JSON.parse (fs.readFileSync("./db/db.json","utf-8"));
+    let data = JSON.parse (fs.readFileSync("db/db.json","utf-8"));
+    fs.writeFileSync ('db/db.json', JSON.stringify (data))
     data.push (saveNote);
     res.json (data);
 });
 
 app.get('/api/notes', (req, res) => {
-    let data = JSON.parse (fs.readFileSync("./db/db.json","utf-8"));
+    let data = JSON.parse (fs.readFileSync("db/db.json","utf-8"));
+    console.log ('my notes are' + JSON.stringify (data));
     res.json (data);
 })
 
 app.delete('/api/notes/:id'), (req, res) => {
     let noteId = req.params.id   
-    let data = JSON.parse (fs.readFileSync("./db/db.json","utf-8"));
+    let data = JSON.parse (fs.readFileSync("db/db.json","utf-8"));
     const newData = data.filter (note => note.id.toString() !==noteId)
-    fs.writeFileSync ('./db/db.json', JSON.stringify (newData))
+    fs.writeFileSync ('db/db.json', JSON.stringify (newData))
     res.json (newData)
 };
 
