@@ -34,12 +34,15 @@ app.post('/notes', (req, res) => {
 
 app.get('/notes', (req, res) => {
     let data = JSON.parse (fs.readFileSync("./db/db.json","utf-8"));
-    res.json (data)
+    res.json (data);
 })
 
-app.delete('/api/notes'), (req, res) => {
-    // Insert code here
-
+app.delete('/notes/:id'), (req, res) => {
+    let noteId = req.params.id   
+    let data = JSON.parse (fs.readFileSync("./db/db.json","utf-8"));
+    const newData = data.filter (note => note.id.toString() !==noteId)
+    fs.writeFileSync ('./db/db.json', JSON.stringify (newData))
+    res.json (newData)
 };
 
 // Starts the server to begin listening
