@@ -39,14 +39,14 @@ app.get('/api/notes', (req, res) => {
     res.json (data);
 })
 
-app.delete('/api/notes/:id'), (req, res) => {
+app.delete('/api/notes/:id', (req, res) => {
     let noteId = req.params.id;   
     let data = JSON.parse (fs.readFileSync("db/db.json","utf-8"));
     console.log ("test");
     const newData = data.filter (note => note.id.toString() !==noteId)
     fs.writeFileSync ('db/db.json', JSON.stringify (newData))
     res.json (newData)
-};
+});
 
 // Starts the server to begin listening
 app.listen(PORT, () => console.log(`App listening on PORT ${PORT}`));
