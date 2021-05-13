@@ -9,7 +9,7 @@ const app = express ();
 const PORT = process.env.PORT || 3000;
 
 // DATA
-const newNote = []
+// const newNote = []
 
 // Sets up the express app to handle parsing
 app.use(express.urlencoded({ extended: true}));
@@ -40,9 +40,9 @@ app.get('/api/notes', (req, res) => {
 })
 
 app.delete('/api/notes/:id'), (req, res) => {
-    let noteId = req.params.id   
+    let noteId = req.params.id;   
     let data = JSON.parse (fs.readFileSync("db/db.json","utf-8"));
-    console.log (req.params.id);
+    console.log ("test");
     const newData = data.filter (note => note.id.toString() !==noteId)
     fs.writeFileSync ('db/db.json', JSON.stringify (newData))
     res.json (newData)
