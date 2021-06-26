@@ -5,12 +5,12 @@ https://github.com/mdis928/Express-JS-Note-Taker
 ## Description
 The goal of this project is to focus on using express, which  is a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications. I can use localhost and show off my application. I don't need to show my application as a static website
 ## Table of Contents
-* [Installiation] (#installiation)
-* [Usage] (#usage)
-* [License] (#license)
-* [Contributions] (#contributions)
-* [Tests] (#tests)
-* [Questions] (#questions)
+- [Installiation] (#installiation)
+- [Usage] (#usage)
+- [License] (#license)
+- [Contributions] (#contributions)
+- [Tests] (#tests)
+- [Questions] (#questions)
 ## Installiations 
 The following dependencies must be installed to run the application: Express, nodemon, heroku, uuid
 ## Usage
