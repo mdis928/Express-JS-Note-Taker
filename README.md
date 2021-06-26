@@ -26,4 +26,5 @@ If you have any questions about the repo, contact Michael DiSanto at mdis928 via
 
 https://express-notetaker-mdis928.herokuapp.com/
 
-![Note Taker pic](assets/images/Note Taker.PNG)
+![notetaker pic](assets/images/NoteTaker.PNG)
+
